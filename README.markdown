@@ -1,4 +1,6 @@
-# holman does dotfiles
+# cookrn does dotfiles
+
+these came from [holman](https://github.com/holman)
 
 ## dotfiles
 
