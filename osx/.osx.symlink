@@ -3,5 +3,8 @@
 # Disable press-and-hold for keys in favor of key repeat
 defaults write -g ApplePressAndHoldEnabled -bool false
 
+# Show all hidden files in finder
+defaults write com.apple.finder AppleShowAllFiles TRUE
+
 # Show the ~/Library folder
 chflags nohidden ~/Library
