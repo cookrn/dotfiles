@@ -1,29 +1,26 @@
+" Set That Leader First
+let mapleader=","
+
 " ---------------------------------------------------------------------------
 "  Miscellaneous
 " ---------------------------------------------------------------------------
-set noswapfile
-color solarized
-set nocompatible
+nnoremap <C-e> 3<C-e>
+nnoremap <C-y> 3<C-y>
 set lazyredraw
-set ttyfast
-set wrapscan " Searches wrap around end of file
-syntax on
-set showmode " Show the current mode.
 set mouse=a " Enable moouse in all in all modes.
+set nocompatible
+set noerrorbells
+set noswapfile
 set ofu=syntaxcomplete#Complete " Set omni-completion method.
+set showmode " Show the current mode.
 set splitbelow " New window goes below
 set splitright " New windows goes right
 set suffixes=.bak,~,.swp,.swo,.o,.d,.info,.aux,.log,.dvi,.pdf,.bin,.bbl,.blg,.brf,.cb,.dmg,.exe,.ind,.idx,.ilg,.inx,.out,.toc,.pyc,.pyd,.dll
 set term=builtin_ansi
-set noerrorbells
+set ttyfast
+set wrapscan " Searches wrap around end of file
+syntax on
 " Speed up viewport scrolling
-nnoremap <C-e> 3<C-e>
-nnoremap <C-y> 3<C-y>
-" Without setting this, ZoomWin restores windows in a way that causes
-" equalalways behavior to be triggered the next time CommandT is used.
-" This is likely a bludgeon to solve some other issue, but it works
-set noequalalways
-set hidden " When a buffer is brought to foreground, remember undo history and marks.
 if has("autocmd")
 au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
 \| exe "normal g'\"" | endif
@@ -32,17 +29,8 @@ endif
 " " ----------------------------------------------------------------------------
 " "  Text Formatting
 " " ----------------------------------------------------------------------------
-set nowrap
-set tabstop=2
-set shiftwidth=2
-set softtabstop=2
-set expandtab
-set list listchars=tab:\ \ ,trail:·
 set autoindent " Copy indent from last line when starting new line.
-set hidden " When a buffer is brought to foreground, remember undo history and marks.
-set smartindent            " be smart about it
-set nosmarttab             " fuck tabs
-set virtualedit=block      " allow virtual edit in visual block ..
+set expandtab
 set formatoptions+=c " Format comments
 set formatoptions+=r " Continue comments by default
 set formatoptions+=o " Make comment when using o or O from comment line
@@ -51,34 +39,46 @@ set formatoptions+=n " Recognize numbered lists
 set formatoptions+=2 " Use indent from 2nd line of a paragraph
 set formatoptions+=l " Don't break lines that are already long
 set formatoptions+=1 " Break before 1-letter words
+set hidden " When a buffer is brought to foreground, remember undo history and marks.
+set list listchars=tab:\ \ ,trail:·
+set nosmarttab             " fuck tabs
+set nowrap
+set shiftwidth=2
+set smartindent            " be smart about it
+set softtabstop=2
+set tabstop=2
+set virtualedit=block      " allow virtual edit in visual block ..
 
 " " ----------------------------------------------------------------------------
 " " UI
 " " ----------------------------------------------------------------------------
-set ruler                      " show the cursor position all the time
+color solarized
+map <Leader>l :set background=light<CR>
+map <Leader>d :set background=dark<CR>
+set backspace=indent,eol,start " allow backspacing over everything in insert mode
+set ch=2                       " command line height
 set noshowcmd                  " don't display incomplete commands
 set nolazyredraw               " turn off lazy redraw
+set nostartofline              " don't jump to the start of line when scrolling
 set number                     " line numbers
-set wildmode=list:longest,list:full
+set report=0                   " tell us about changes
+set ruler                      " show the cursor position all the time
+set whichwrap+=<,>,h,l,[,]     " backspace and cursor keys wrap to
 set wildignore+=*.o,*.obj,.git,*.rbc
 set wildignore+=*.jpg,*.jpeg,*.gif,*.png,*.gif,*.psd,*.o,*.obj,*.min.js,smarty/**,vendor/**,node_libraries/**,.git,.hg,.svn,.sass-cache,log,tmp,build,**/ckeditor/**
 set wildmenu " Hitting TAB in command mode will show possible completions above command line.
-set ch=2                       " command line height
-set backspace=indent,eol,start " allow backspacing over everything in insert mode
-set whichwrap+=<,>,h,l,[,]     " backspace and cursor keys wrap to
-set report=0                   " tell us about changes
-set nostartofline              " don't jump to the start of line when scrolling
+set wildmode=list:longest,list:full
 
 " " ----------------------------------------------------------------------------
 " " Visual Cues
 " " ----------------------------------------------------------------------------
-set showmatch              " brackets/braces that is
-set mat=5                  " duration to show matching brace (1/10 sec)
-set incsearch              " do incremental searching
-set visualbell             " shut the fuck up
 set hlsearch
 set ignorecase
+set incsearch              " do incremental searching
+set mat=5                  " duration to show matching brace (1/10 sec)
+set showmatch              " brackets/braces that is
 set smartcase
+set visualbell             " shut the fuck up
 
 " ---------------------------------------------------------------------------
 "  Folding
@@ -139,7 +139,6 @@ endfunction
 "  Key Mappings
 " ---------------------------------------------------------------------------
 inoremap jj <ESC>
-let mapleader=","
 " Faster split resizing (+,-)
 if bufwinnr(1)
 map + <C-W>+
@@ -176,7 +175,7 @@ vmap <C-Up> [egv
 vmap <C-Down> ]egv
 " clear seach highlight
 map <Leader>h :noh<CR>
-map ,s :call StripWhitespace ()<CR>
+map <Leader>s :call StripWhitespace ()<CR>
 nnoremap Q gqap
 vnoremap Q gq
 nnoremap j gj
@@ -193,32 +192,32 @@ inoremap <Up> <C-o>gk
 " ---------------------------------------------------------------------------
 "  Plugin Config
 " ---------------------------------------------------------------------------
+" load pathogen bundles
+call pathogen#infect()
+call pathogen#helptags()
+filetype plugin indent on
+
 " NERDTree configuration
-" let NERDTreeIgnore=['\.rbc$', '\~$']
-" map <Leader>n :NERDTreeToggle<CR>
-" Command-T configuration
-" let g:CommandTMaxHeight=20
+let NERDTreeIgnore=['\.rbc$', '\~$']
+map <Leader>n :NERDTreeToggle<CR>
+
 " SuperTab
-"let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
-"let g:SuperTabCrMapping = 0
-" let g:SuperTabCompletionType = "context"
-" au BufEnter,BufRead,BufNewFile *.html,*.md,*.erb let g:SuperTabMappingForward = '<s-tab>'
-" au BufLeave *.html,*.erb let g:SuperTabMappingForward = '<tab>'
-" Command-T
-" let g:CommandTMaxFiles=20000
-" let g:CommandTMatchWindowAtTop=1
-" let g:CommandTMaxHeight=12
-" let g:CommandTCancelMap=['<Esc>', '<C-c>']
-" Sparkup
-"let g:sparkupNextMapping=''
-" Coffeescript.vim
-"autocmd BufWritePost *.coffee CoffeeMake! -b
-"let coffee_folding = 1
+let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
+let g:SuperTabCrMapping = 0
+let g:SuperTabCompletionType = "context"
+au BufEnter,BufRead,BufNewFile *.html,*.md,*.erb let g:SuperTabMappingForward = '<s-tab>'
+au BufLeave *.html,*.erb let g:SuperTabMappingForward = '<tab>'
+
 " Syntastic
-" let g:syntastic_enable_signs=1
-" let g:syntastic_auto_loc_list=1
-" let g:syntastic_quiet_warnings=1
-" set statusline+=%#warningmsg#
-" set statusline+=%{SyntasticStatuslineFlag()}
-" set statusline+=%*
+let g:syntastic_enable_signs=1
+let g:syntastic_auto_loc_list=1
+let g:syntastic_quiet_warnings=1
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+" Without setting this, ZoomWin restores windows in a way that causes
+" equalalways behavior to be triggered the next time CommandT is used.
+" This is likely a bludgeon to solve some other issue, but it works
+set noequalalways
 
