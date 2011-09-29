@@ -3,6 +3,9 @@
 # Disable press-and-hold for keys in favor of key repeat
 defaults write -g ApplePressAndHoldEnabled -bool false
 
+# Turn off Lion spell checking
+defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool NO
+
 # Show all hidden files in finder
 defaults write com.apple.finder AppleShowAllFiles TRUE
 
