@@ -1,3 +1,4 @@
 .netrwhist
+.netrwhist~
 git/gitconfig.symlink
 vim/.vim.symlink/bundle/**/*

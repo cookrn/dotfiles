@@ -6,6 +6,7 @@ let mapleader=","
 " ---------------------------------------------------------------------------
 nnoremap <C-e> 3<C-e>
 nnoremap <C-y> 3<C-y>
+set autoread
 set lazyredraw
 set mouse=a " Enable moouse in all in all modes.
 set nocompatible
