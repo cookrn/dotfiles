@@ -1,9 +1,13 @@
 require 'rake'
 
-namespace :install do
+desc "Install everything"
+task :install do
+  Rake::Task[ "install:symlinks" ].invoke
+  Rake::Task[ "install:pathogen_bundles" ].invoke
+end
+task :default => :install
 
-  desc "Install everything"
-  task :all => [ :pathogen_bundles , :symlinks ]
+namespace :install do
 
   desc "Install Vim Pathogen Bundles ... Inspired By - https://github.com/tsaleh/dotfiles/blob/master/vim/update_bundles"
   task :pathogen_bundles do
@@ -90,7 +94,4 @@ namespace :install do
   end
 
 end
-
-# The default task should install everything
-task :default => "install:all"
 
