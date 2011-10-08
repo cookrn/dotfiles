@@ -1,0 +1,12 @@
+[alias]
+  s = status
+  c = commit -m
+  a = add
+  aa= !git add -u && git add . && git status
+  up = !git fetch origin && git rebase origin/master
+  rmb = !sh -c 'git branch -D $1 && git push origin :$1' -
+[user]
+  name = Ryan Cook
+  email = ryan@quickleft.com
+[core]
+  excludesfile = /Users/ryan/.gitignore
