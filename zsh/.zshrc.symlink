@@ -38,5 +38,5 @@ alias reload!='. ~/.zshrc'
 alias v="vim ."
 
 # Changes to the path
-export PATH=/usr/local/bin:$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH
+export PATH=/usr/local/bin:/usr/local/sbin:$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH
 
