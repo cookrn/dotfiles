@@ -41,7 +41,7 @@ set formatoptions+=2 " Use indent from 2nd line of a paragraph
 set formatoptions+=l " Don't break lines that are already long
 set formatoptions+=1 " Break before 1-letter words
 set hidden " When a buffer is brought to foreground, remember undo history and marks.
-set list listchars=tab:\ \ ,trail:·
+set list listchars=tab:\∴\ ,trail:·
 set nosmarttab             " fuck tabs
 set nowrap
 set shiftwidth=2
