@@ -31,7 +31,6 @@ endif
 " "  Text Formatting
 " " ----------------------------------------------------------------------------
 set autoindent " Copy indent from last line when starting new line.
-set expandtab
 set formatoptions+=c " Format comments
 set formatoptions+=r " Continue comments by default
 set formatoptions+=o " Make comment when using o or O from comment line
@@ -49,6 +48,7 @@ set smartindent            " be smart about it
 set softtabstop=2
 set tabstop=2
 set virtualedit=block      " allow virtual edit in visual block ..
+set expandtab
 
 " " ----------------------------------------------------------------------------
 " " UI
