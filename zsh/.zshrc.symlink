@@ -29,7 +29,7 @@ plugins=()
 
 source $ZSH/oh-my-zsh.sh
 
-# Customize to your needs...
+# Aliases
 alias b="bundle"
 alias g="git"
 alias h="heroku"
@@ -37,6 +37,12 @@ alias l="ls -alh"
 alias reload!='. ~/.zshrc'
 alias v="vim ."
 
-# Changes to the path
-export PATH=/usr/local/bin:/usr/local/sbin:$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH
+## Changes to the path
+# => prepend local bin and sbin - for homebrew
+export PATH=/usr/local/bin:/usr/local/sbin:$PATH
+# => prepend rbenv bin - for rbenv
+export PATH=$HOME/.rbenv/bin:$PATH
+
+# Initialize rbenv
+eval "$(rbenv init -)"
 
