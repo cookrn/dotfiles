@@ -2,6 +2,16 @@
 
 these came from [holman](https://github.com/holman)
 
+## todo
+
+* oh-my-zsh install
+* zsh theme
+* solarized
+* rename to `env`
+* rbenv and ruby-install
+* homebrew
+* smeagol? https://github.com/atmos/smeagol
+
 ## dotfiles
 
 If you're interested in the philosophy behind why projects like these are
@@ -10,13 +20,13 @@ subject](http://zachholman.com/2010/08/dotfiles-are-meant-to-be-forked/).
 
 ## install
 
-- `git clone git://github.com/cookrn/dotfiles ~/.dotfiles`
-- `cd ~/.dotfiles`
+- `git clone git://github.com/cookrn/dotfiles`
+- `cd dotfiles/`
 - `rake`
 
-The install rake task will symlink the appropriate files in `.dotfiles` to your
-home directory. Everything is configured and tweaked within `~/.dotfiles`,
-though.
+The install rake task will symlink the appropriate files in `dotfiles/` to your
+home directory. Everything is configured and tweaked within `dotfiles/`,
+though. The actual install directory itself is irrelevant.
 
 The main file you'll want to change right off the bat is `zsh/zshrc.symlink`,
 which sets up a few paths that'll be different on your particular machine.
