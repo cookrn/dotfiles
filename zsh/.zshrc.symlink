@@ -37,11 +37,10 @@ alias l="ls -aGhl"
 alias reload!='. ~/.zshrc'
 alias v="vim ."
 
-## Changes to the path
-# => prepend local bin and sbin - for homebrew
-export PATH=/usr/local/bin:/usr/local/sbin:$PATH
-# => prepend rbenv bin - for rbenv
+## Changes to the PATH
+export PATH=/usr/local/sbin:$PATH
 export PATH=$HOME/.rbenv/bin:$PATH
+export PATH=$HOME/bin:$PATH
 
 # Initialize rbenv
 eval "$(rbenv init -)"
