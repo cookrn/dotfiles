@@ -8,7 +8,6 @@ end
 task :default => :install
 
 namespace :install do
-
   desc "Install Vim Pathogen Bundles ... Inspired By - https://github.com/tsaleh/dotfiles/blob/master/vim/update_bundles"
   task :pathogen_bundles do
     git_bundles = [
@@ -92,6 +91,4 @@ namespace :install do
       `ln -s "$PWD/#{linkable}" "#{target}"`
     end
   end
-
 end
-

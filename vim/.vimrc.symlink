@@ -203,7 +203,7 @@ let NERDTreeIgnore=['\.rbc$', '\~$']
 map <Leader>n :NERDTreeToggle<CR>
 
 " SuperTab
-let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
+let g:SuperTabDefaultCompletionType = "context"
 let g:SuperTabCrMapping = 0
 let g:SuperTabCompletionType = "context"
 au BufEnter,BufRead,BufNewFile *.html,*.md,*.erb let g:SuperTabMappingForward = '<s-tab>'

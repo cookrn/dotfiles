@@ -1,3 +1,4 @@
+.rbx
 .net*
 git/gitconfig.symlink
 vim/.vim.symlink/bundle/**/*
