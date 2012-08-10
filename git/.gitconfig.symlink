@@ -10,3 +10,7 @@
   email = cookrn@gmail.com
 [core]
   excludesfile = ~/.gitignore
+[hub]
+	protocol = https
+[github]
+	user = cookrn

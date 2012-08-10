@@ -24,6 +24,7 @@ alias g="git"
 alias h="heroku"
 alias l="ls -aGhl"
 alias reload!='. ~/.zshrc'
+alias sls='screen -ls'
 alias v="vim ."
 
 # Changes to the PATH
@@ -33,5 +34,6 @@ export PATH=$HOME/bin:$PATH
 # This loads RVM into a shell session.
 [[ -s "/Users/cookrn/.rvm/scripts/rvm" ]] && source "/Users/cookrn/.rvm/scripts/rvm"
 
+eval "$(hub alias -s)"
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
